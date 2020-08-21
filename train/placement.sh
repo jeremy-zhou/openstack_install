@@ -24,7 +24,7 @@ crudini --set /etc/placement/placement.conf keystone_authtoken password 39667054
 su -s /bin/sh -c "placement-manage db sync" placement
 systemctl restart httpd
 
-
+#/etc/httpd/conf.d/00-placement-api.conf
 
 
 
