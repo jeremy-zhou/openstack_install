@@ -33,17 +33,17 @@ crudini --set /etc/nova/nova.conf keystone_authtoken username nova
 crudini --set /etc/nova/nova.conf keystone_authtoken password 396670549
 
 
-crudini --set /etc/nova/nova.conf neutron auth_url http://controller:5000
-crudini --set /etc/nova/nova.conf neutron auth_uri http://controller:5000
-crudini --set /etc/nova/nova.conf neutron auth_type password
-crudini --set /etc/nova/nova.conf neutron project_domain_name default
-crudini --set /etc/nova/nova.conf neutron user_domain_name default
-crudini --set /etc/nova/nova.conf neutron region_name RegionOne
-crudini --set /etc/nova/nova.conf neutron project_name service
-crudini --set /etc/nova/nova.conf neutron username neutron
-crudini --set /etc/nova/nova.conf neutron password 396670549
-crudini --set /etc/nova/nova.conf neutron service_metadata_proxy true
-crudini --set /etc/nova/nova.conf neutron metadata_proxy_shared_secret 396670549
+#crudini --set /etc/nova/nova.conf neutron auth_url http://controller:5000
+#crudini --set /etc/nova/nova.conf neutron auth_uri http://controller:5000
+#crudini --set /etc/nova/nova.conf neutron auth_type password
+#crudini --set /etc/nova/nova.conf neutron project_domain_name default
+#crudini --set /etc/nova/nova.conf neutron user_domain_name default
+#crudini --set /etc/nova/nova.conf neutron region_name RegionOne
+#crudini --set /etc/nova/nova.conf neutron project_name service
+#crudini --set /etc/nova/nova.conf neutron username neutron
+#crudini --set /etc/nova/nova.conf neutron password 396670549
+#crudini --set /etc/nova/nova.conf neutron service_metadata_proxy true
+#crudini --set /etc/nova/nova.conf neutron metadata_proxy_shared_secret 396670549
 
 crudini --set /etc/nova/nova.conf vnc enabled true
 crudini --set /etc/nova/nova.conf vnc server_listen 192.168.2.246
