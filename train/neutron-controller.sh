@@ -2,6 +2,14 @@
 
 yum install openstack-neutron openstack-neutron-ml2 openstack-neutron-linuxbridge ebtables -y
 
+. admin-openrc
+openstack user create --domain default --password-prompt neutron
+openstack role add --project service --user neutron admin
+openstack service create --name neutron --description "OpenStack Networking" network
+openstack endpoint create --region RegionOne network public http://controller:9696
+openstack endpoint create --region RegionOne network internal http://controller:9696
+openstack endpoint create --region RegionOne network admin http://controller:9696
+
 crudini --set /etc/neutron/neutron.conf database connection mysql+pymysql://neutron:396670549@controller/neutron
 
 crudini --set /etc/neutron/neutron.conf DEFAULT core_plugin ml2
