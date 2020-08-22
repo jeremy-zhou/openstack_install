@@ -21,6 +21,17 @@ crudini --set /etc/placement/placement.conf keystone_authtoken project_name serv
 crudini --set /etc/placement/placement.conf keystone_authtoken username placement
 crudini --set /etc/placement/placement.conf keystone_authtoken password 396670549
 
+
+echo "<Directory /usr/bin>" >> /etc/httpd/conf.d/00-placement-api.conf
+echo "  <IfVersion >= 2.4>" >> /etc/httpd/conf.d/00-placement-api.conf
+echo "     Require all granted" >> /etc/httpd/conf.d/00-placement-api.conf
+echo "   </IfVersion>" >> /etc/httpd/conf.d/00-placement-api.conf
+echo "   <IfVersion < 2.4>" >> /etc/httpd/conf.d/00-placement-api.conf
+echo "      Order allow,deny" >> /etc/httpd/conf.d/00-placement-api.conf
+echo "      Allow from all" >> /etc/httpd/conf.d/00-placement-api.conf
+echo "   </IfVersion>" >> /etc/httpd/conf.d/00-placement-api.conf
+echo "</Directory>" >> /etc/httpd/conf.d/00-placement-api.conf
+
 su -s /bin/sh -c "placement-manage db sync" placement
 systemctl restart httpd
 
