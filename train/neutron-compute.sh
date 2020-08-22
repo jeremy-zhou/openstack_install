@@ -27,8 +27,11 @@ echo 'net.bridge.bridge-nf-call-ip6tables=1' >> /etc/sysctl.conf
 modprobe br_netfilter
 sysctl -p
 
-
-
+systemctl restart openstack-nova-compute.service
+systemctl enable neutron-linuxbridge-agent.service
+systemctl start neutron-linuxbridge-agent.service
+systemctl status neutron-linuxbridge-agent.service
+sleep 2s
 
 
 
