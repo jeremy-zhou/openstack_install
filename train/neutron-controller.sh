@@ -55,6 +55,10 @@ crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini vxlan enable_vxlan 
 crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini securitygroup enable_security_group true
 crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini securitygroup firewall_driver neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
 
+echo 'net.bridge.bridge-nf-call-iptables=1' >> /etc/sysctl.conf
+echo 'net.bridge.bridge-nf-call-ip6tables=1' >> /etc/sysctl.conf
+modprobe br_netfilter
+sysctl -p
 
 crudini --set /etc/neutron/dhcp_agent.ini DEFAULT interface_driver linuxbridge
 crudini --set /etc/neutron/dhcp_agent.ini DEFAULT dhcp_driver neutron.agent.linux.dhcp.Dnsmasq
