@@ -27,6 +27,18 @@ echo 'net.bridge.bridge-nf-call-ip6tables=1' >> /etc/sysctl.conf
 modprobe br_netfilter
 sysctl -p
 
+crudini --set /etc/nova/nova.conf neutron auth_url http://controller:5000
+crudini --set /etc/nova/nova.conf neutron auth_uri http://controller:5000
+crudini --set /etc/nova/nova.conf neutron auth_type password
+crudini --set /etc/nova/nova.conf neutron project_domain_name default
+crudini --set /etc/nova/nova.conf neutron user_domain_name default
+crudini --set /etc/nova/nova.conf neutron region_name RegionOne
+crudini --set /etc/nova/nova.conf neutron project_name service
+crudini --set /etc/nova/nova.conf neutron username neutron
+crudini --set /etc/nova/nova.conf neutron password 396670549
+crudini --set /etc/nova/nova.conf neutron service_metadata_proxy true
+crudini --set /etc/nova/nova.conf neutron metadata_proxy_shared_secret 396670549
+
 systemctl restart openstack-nova-compute.service
 systemctl enable neutron-linuxbridge-agent.service
 systemctl start neutron-linuxbridge-agent.service
