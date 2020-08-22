@@ -66,7 +66,7 @@ crudini --set /etc/nova/nova.conf placement password 396670549
 
 su -s /bin/sh -c "nova-manage api_db sync" nova
 su -s /bin/sh -c "nova-manage cell_v2 map_cell0" nova
-su -s /bin/sh -c "nova-manage cell_v2 create_cell --name=cell --verbose" nova
+su -s /bin/sh -c "nova-manage cell_v2 create_cell --name=cell1 --verbose" nova
 su -s /bin/sh -c "nova-manage db sync" nova
 su -s /bin/sh -c "nova-manage cell_v2 list_cells" nova
 
