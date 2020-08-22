@@ -63,11 +63,6 @@ crudini --set /etc/neutron/dhcp_agent.ini DEFAULT enable_isolated_metadata true
 crudini --set /etc/neutron/metadata_agent.ini DEFAULT nova_metadata_host controller
 crudini --set /etc/neutron/metadata_agent.ini DEFAULT metadata_proxy_shared_secret 396670549
 
-echo 'net.bridge.bridge-nf-call-iptables=1' >> /etc/sysctl.conf
-echo 'net.bridge.bridge-nf-call-ip6tables=1' >> /etc/sysctl.conf
-modprobe br_netfilter
-sysctl -p
-
 ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini
 su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
 
