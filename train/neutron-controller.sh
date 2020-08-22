@@ -63,6 +63,18 @@ crudini --set /etc/neutron/dhcp_agent.ini DEFAULT enable_isolated_metadata true
 crudini --set /etc/neutron/metadata_agent.ini DEFAULT nova_metadata_host controller
 crudini --set /etc/neutron/metadata_agent.ini DEFAULT metadata_proxy_shared_secret 396670549
 
+crudini --set /etc/nova/nova.conf neutron auth_url http://controller:5000
+crudini --set /etc/nova/nova.conf neutron auth_uri http://controller:5000
+crudini --set /etc/nova/nova.conf neutron auth_type password
+crudini --set /etc/nova/nova.conf neutron project_domain_name default
+crudini --set /etc/nova/nova.conf neutron user_domain_name default
+crudini --set /etc/nova/nova.conf neutron region_name RegionOne
+crudini --set /etc/nova/nova.conf neutron project_name service
+crudini --set /etc/nova/nova.conf neutron username neutron
+crudini --set /etc/nova/nova.conf neutron password 396670549
+crudini --set /etc/nova/nova.conf neutron service_metadata_proxy true
+crudini --set /etc/nova/nova.conf neutron metadata_proxy_shared_secret 396670549
+
 ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini
 su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
 
