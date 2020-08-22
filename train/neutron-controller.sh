@@ -31,7 +31,7 @@ crudini --set /etc/neutron/neutron.conf keystone_authtoken username neutron
 crudini --set /etc/neutron/neutron.conf keystone_authtoken password 396670549
 
 crudini --set /etc/neutron/neutron.conf nova auth_url http://controller:5000
-crudini --set /etc/neutron/neutron.conf nova auth_type http://controller:5000
+crudini --set /etc/neutron/neutron.conf nova auth_type password
 crudini --set /etc/neutron/neutron.conf nova project_domain_name default
 crudini --set /etc/neutron/neutron.conf nova user_domain_name default
 crudini --set /etc/neutron/neutron.conf nova region_name RegionOne
