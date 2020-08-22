@@ -18,7 +18,7 @@ crudini --set /etc/nova/nova.conf DEFAULT use_neutron true
 crudini --set /etc/nova/nova.conf DEFAULT firewall_driver nova.virt.firewall.NoopFirewallDriver
 
 crudini --set /etc/nova/nova.conf api_database connection mysql+pymysql://nova:396670549@controller/nova_api
-crudini --set /etc/nova/nova.conf database connection mysql+pymysql://nova:396670549@controller/nova_api
+crudini --set /etc/nova/nova.conf database connection mysql+pymysql://nova:396670549@controller/nova
 
 crudini --set /etc/nova/nova.conf api auth_strategy keystone
 crudini --set /etc/nova/nova.conf keystone_authtoken www_authenticate_uri http://controller:5000/
