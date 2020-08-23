@@ -1,9 +1,9 @@
 #!/bin/bash
 
-yum install mariadb mariadb-sever python2-PyMySQL -y
+yum install mariadb mariadb-server python2-PyMySQL -y
 > /etc/my.cnf.d/openstack.cnf
 
-crudini --set /etc/my.cnf.d/openstack.cnf mysqld bind-address 192.168.2.246
+crudini --set /etc/my.cnf.d/openstack.cnf mysqld bind-address 192.168.179.129
 crudini --set /etc/my.cnf.d/openstack.cnf mysqld default-storage-engine innodb
 crudini --set /etc/my.cnf.d/openstack.cnf mysqld innodb_file_per_table on
 crudini --set /etc/my.cnf.d/openstack.cnf mysqld max_connections 4096
