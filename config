@@ -1,0 +1,10 @@
+admin_pass=password
+control_mgmt_ip=192.168.179.129
+compute_mgmt_ip=192.168.179.130
+ntp_client_subnet=192.168.0.0
+subnet_mask=16
+ntp0=ntp.aliyun.com
+ntp1=ntp3.aliyun.com
+ntp2=ntp6.aliyun.com
+control_provider_nic=eth1
+compute_provider_nic=eth1
